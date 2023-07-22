@@ -96,7 +96,7 @@ contract PetPark {
     function add(
         AnimalType _animal,
         uint256 _count
-    ) external onlyOwner returns (uint256) {
+    ) external onlyOwner {
         require(_animal != AnimalType.None, "Invalid animal");
 
         uint256 count = animalCounts[_animal];
@@ -108,8 +108,6 @@ contract PetPark {
         animalCounts[_animal] = count;
 
         emit Added(_animal, _count);
-
-        return count;
     }
 
     /// @notice Allows a user to borrow a type of animal from the park,
